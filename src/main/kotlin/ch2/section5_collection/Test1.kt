@@ -25,5 +25,5 @@ fun main() {
     val array8 = Array<Int>(3, { i -> i * 10 })
 
     // 각 기초타입의 배열 클래스도 제공
-    val array9 =
+    val array9 = IntArray(3)
 }
