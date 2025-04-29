@@ -48,4 +48,44 @@ fun main() {
     println(user3.toString())   // UserData(no=1, name=kim)
     println(user5.toString())   // UserData(no=1, name=kim)
 
+    // 구조 분해 할당
+    val no1 = user3.component1()
+    val name1 = user3.component2()
+//    val n1 = user3.component3()   // error 주생성자의 매개변수 개수만큼 생성
+    println("$no1, $name1")
+
+    // 한꺼번에 여러개의 데이터 추출
+    val (no2, name2) = user3
+    println("$no2, $name2")
+
+    // 멤버 변수를 모두 뽑고싶지 않을 때
+    val (_, c) = user3
+    println("$c")
+
+    // data 클래스가 아닌 list 도 가능함
+    val list = listOf(1, 2, 3, 4, 5)
+    val (d1, d2) = list
+    println("$d1, $d2") // 1, 2
+
+    val (e1, e2) = list.drop(1)
+    println("$e1, $e2") // 2, 3
+
+    val (_, f1, _, f2) = list
+    println("$f1, $f2") // 2, 4
+
+    val g1 = list.component5()
+    println("$g1")  // 5
+
+    // 어떤 함수에서 데이터를 여러개 리턴시키고자 할 때 tuple 기법 -> 코틀린 지원 X
+    // data 클래스로 비슷하게 흉내
+    data class Datas(var data1: Int, var data2: Int, var data3: Int)
+
+    fun getDatas(): Datas {
+        return Datas(10, 20, 30)
+    }
+
+    val (k1, k2, k3) = getDatas()
+    println("$k1, $k2, $k3")
+
+
 }
