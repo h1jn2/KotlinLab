@@ -17,7 +17,7 @@ class FunctionTest {
 
 fun main() {
     val test = FunctionTest()
-    test.method1
+    test.method1()
     println(test.method2())
     println(test.method3(5))
     println(test.method4(2, 1))
